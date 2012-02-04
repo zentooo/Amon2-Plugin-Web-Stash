@@ -16,7 +16,7 @@ sub init {
 
     _enable_stash($c);
 
-    if ( my $root = $conf->{autorender} ) {
+    if ( $conf->{autorender} ) {
         $conf->{suffix} ||= '.tt';
         $conf->{index_filename} ||= 'index';
         _enable_autorender($c, $conf);
