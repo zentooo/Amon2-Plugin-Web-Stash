@@ -1,10 +1,32 @@
 package Amon2::Plugin::Web::ContextStash;
-use 5.008_001;
 use strict;
 use warnings;
 
 our $VERSION = '0.01';
 
+use Class::Method::Modifiers qw/install_modifier/;
+
+
+my $store = +{};
+
+sub init {
+    my ($class, $c, $conf) = @_;
+    my $webpkg = ref $c || $c;
+
+    Amon2::Util::add_method($webpkg, 'stash', \&_stash);
+
+    $c->add_trigger("AFTER_DISPATCH" => sub {
+        $store = +{};
+    });
+
+    install_modifier($webpkg, "around", "render", sub {
+        my ($orig, $c, $tmplname, $param) = @_;
+        $param ||= $c->stash;
+        $orig->($c, $tmplname, $param);
+    });
+}
+
+sub _stash { $store }
 
 1;
 __END__

@@ -27,6 +27,8 @@ use inc::Module::Install;
 all_from 'lib/Amon2/Plugin/Web/ContextStash.pm';
 
 
+requires 'Class::Method::Modifiers';
+
 test_requires 'Test::More'     => '0.88';
 test_requires 'Test::Requires' => '0.06';
 
