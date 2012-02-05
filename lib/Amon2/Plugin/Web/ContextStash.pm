@@ -14,7 +14,7 @@ sub _stash { $store }
 sub init {
     my ($class, $c, $conf) = @_;
 
-    _enable_stash($c);
+    _enable_stash($c, $conf);
 
     if ( $conf->{autorender} ) {
         $conf->{suffix} ||= '.tt';
@@ -24,7 +24,7 @@ sub init {
 }
 
 sub _enable_stash {
-    my $c = shift;
+    my ($c, $conf) = @_;
     my $webpkg = ref $c || $c;
 
     Amon2::Util::add_method($webpkg, 'stash', \&_stash);
