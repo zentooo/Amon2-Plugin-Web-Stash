@@ -45,8 +45,7 @@ sub _enable_stash {
         install_modifier($webpkg, "around", "render_json", sub {
             my ($orig, $c, $data) = @_;
             $render_called = 1; # for autorender
-            $data ||= +{};
-            $orig->($c, +{%{ $c->stash }, $data});
+            $orig->($c, $data);
         });
     }
 }
