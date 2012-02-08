@@ -37,16 +37,16 @@ sub _enable_stash {
     install_modifier($webpkg, "around", "render", sub {
         my ($orig, $c, $tmpl_path, $param) = @_;
         $render_called = 1; # for autorender
-        $param ||= $c->stash;
-        $orig->($c, $tmpl_path, $param);
+        $param ||= +{};
+        $orig->($c, $tmpl_path, +{%{ $c->stash }, %$param});
     });
 
     if ( $webpkg->can('render_json') ) {
         install_modifier($webpkg, "around", "render_json", sub {
             my ($orig, $c, $data) = @_;
             $render_called = 1; # for autorender
-            $data ||= $c->stash;
-            $orig->($c, $data);
+            $data ||= +{};
+            $orig->($c, +{%{ $c->stash }, $data});
         });
     }
 }

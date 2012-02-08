@@ -32,7 +32,10 @@ my $app = do {
     get '/set2' => sub {
         my $c = shift;
         $c->stash->{data} = +{ foo => 'bar' };
-        $c->render('obj.tt');
+        $c->stash->{bar} = 'baz';
+        $c->render('obj.tt', +{
+            bar => 'bag',
+        });
     };
 
     __PACKAGE__->to_app;
@@ -70,6 +73,10 @@ subtest 'set obj to stash' => sub {
             note $res->content;
             unlike $res->content, qr/foo/;
             like $res->content, qr/bar/;
+
+            # stash override with paramter
+            unlike $res->content, qr/baz/;
+            like $res->content, qr/bag/;
         };
 };
 
@@ -84,3 +91,4 @@ __DATA__
 @@ obj.tt
 [% data.foo %]
 [% data_before %]
+[% bar %]
