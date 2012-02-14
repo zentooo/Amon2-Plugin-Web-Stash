@@ -41,6 +41,12 @@ sub _enable_stash {
         $orig->($c, $tmpl_path, +{%{ $c->stash }, %$param});
     });
 
+    install_modifier($webpkg, "around", "redirect", sub {
+        my ($orig, $c, @args) = @_;
+        $render_called = 1; # for autorender
+        $orig->($c, @args);
+    });
+
     if ( $webpkg->can('render_json') ) {
         install_modifier($webpkg, "around", "render_json", sub {
             my ($orig, $c, $data) = @_;
