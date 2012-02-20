@@ -1,4 +1,4 @@
-package Amon2::Plugin::Web::ContextStash;
+package Amon2::Plugin::Web::Stash;
 use strict;
 use warnings;
 
@@ -38,15 +38,15 @@ __END__
 
 =head1 NAME
 
-Amon2::Plugin::Web::ContextStash - Perl extention to do something
+Amon2::Plugin::Web::StashStash - Perl extention to do something
 
 =head1 VERSION
 
-This document describes Amon2::Plugin::Web::ContextStash version 0.01.
+This document describes Amon2::Plugin::Web::StashStash version 0.01.
 
 =head1 SYNOPSIS
 
-    use Amon2::Plugin::Web::ContextStash;
+    use Amon2::Plugin::Web::StashStash;
 
 =head1 DESCRIPTION
 
