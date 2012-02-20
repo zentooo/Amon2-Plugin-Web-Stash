@@ -14,7 +14,7 @@ my $app = do {
     sub load_config { +{} }
 
     __PACKAGE__->load_plugins(
-        'Web::ContextStash',
+        'Web::Stash',
     );
 
     get '/noset' => sub {

@@ -24,7 +24,7 @@ BEGIN {
 }
 use inc::Module::Install;
 
-all_from 'lib/Amon2/Plugin/Web/ContextStash.pm';
+all_from 'lib/Amon2/Plugin/Web/Stash.pm';
 
 
 requires 'Class::Method::Modifiers';
@@ -39,7 +39,7 @@ author_tests 'xt';
 
 
 clean_files qw(
-    Amon2-Plugin-Web-ContextStash-*
+    Amon2-Plugin-Web-Stash-*
     *.stackdump
     cover_db *.gcov *.gcda *.gcno
     nytprof

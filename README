@@ -1,21 +1,21 @@
-This is Perl module Amon2::Plugin::Web::ContextStash.
+This is Perl module Amon2::Plugin::Web::Stash.
 
 INSTALLATION
 
 Type the following command:
 
-    $ curl -L http://cpanmin.us | perl - Amon2::Plugin::Web::ContextStash
+    $ curl -L http://cpanmin.us | perl - Amon2::Plugin::Web::Stash
 
 Or install cpanm and then run the following command to install
-Amon2::Plugin::Web::ContextStash:
+Amon2::Plugin::Web::Stash:
 
-    $ cpanm Amon2::Plugin::Web::ContextStash
+    $ cpanm Amon2::Plugin::Web::Stash
 
 If you get an archive of this distribution, unpack it and build it
 as per the usual:
 
-    $ tar xzf Amon2-Plugin-Web-ContextStash-$version.tar.gz
-    $ cd Amon2-Plugin-Web-ContextStash-$version
+    $ tar xzf Amon2-Plugin-Web-Stash-$version.tar.gz
+    $ cd Amon2-Plugin-Web-Stash-$version
     $ perl Makefile.PL
     $ make && make test
 
@@ -25,9 +25,9 @@ Then install it:
 
 DOCUMENTATION
 
-Amon2::Plugin::Web::ContextStash documentation is available as in POD. So you can do:
+Amon2::Plugin::Web::Stash documentation is available as in POD. So you can do:
 
-    $ perldoc Amon2::Plugin::Web::ContextStash
+    $ perldoc Amon2::Plugin::Web::Stash
 
 to read the documentation online with your favorite pager.
 
